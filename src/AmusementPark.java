@@ -23,9 +23,9 @@ class AmusementPark {
             charge = 0;
         }
         else{
-            if(age < 13 || time >= 17){
+            if(age < 13 || time >= 17){     // 특별할인 적용 조건
                 charge = 4000;
-            } else if(merit.equals("y") || welfare.equals("y")){
+            } else if(merit.equals("y") || welfare.equals("y")){        // 일반할인 적용 조건
                 charge = 8000;
             } else {
                 charge = 10000;

@@ -24,7 +24,7 @@ public class Jumin {
 
         System.out.print("성별을 입력해 주세요.(m/f):");
         String gender = sc.next();
-        if("m".equals(gender)){
+        if("m".equals(gender)){         // 입력값은 20년 이후로 입력한다는 전제이므로 남(1) 여(2) 고려하지 않음
             gender = "3";
         } else if ("f".equals(gender)) gender = "4";
 

@@ -15,18 +15,24 @@ public class Jumin {
         System.out.print("출생월을 입력해 주세요.(mm):");
         int TempMonth = sc.nextInt();
         String month = null;
+
         if (TempMonth < 10) {
             month = String.format("%02d", TempMonth);
-        }
+        } else month = String.format("%d",TempMonth);
 
         System.out.print("출생일을 입력해 주세요.(dd):");
-        String day = sc.next();
+        int Tempday = sc.nextInt();
+        String day = null;
+
+        if (Tempday < 10) {
+            day = String.format("%02d", Tempday);
+        } else day = String.format("%d",Tempday);
 
         System.out.print("성별을 입력해 주세요.(m/f):");
         String gender = sc.next();
-        if("m".equals(gender)){         // 입력값은 20년 이후로 입력한다는 전제이므로 남(1) 여(2) 고려하지 않음
+        if(("m").equals(gender)){         // 입력값은 20년 이후로 입력한다는 전제이므로 남(1) 여(2) 고려하지 않음
             gender = "3";
-        } else if ("f".equals(gender)) gender = "4";
+        } else if (("f").equals(gender)) gender = "4";
 
         Random rd = new Random();
         int random = rd.nextInt(999999) + 1; // 1부터 999998 사이의 숫자 생성

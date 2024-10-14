@@ -23,7 +23,7 @@ public class Calendar {
         int firstDay3 = ld13.getDayOfWeek().getValue();
         int lastDate3 = ld13.lengthOfMonth();
 
-        // 배열에 담기
+
         int[] months = {previousMonth, month, nextMonth};
         int[] dates = {1, 1, 1};
         int[] lastDates = {lastDate1, lastDate2, lastDate3};
@@ -38,7 +38,7 @@ public class Calendar {
         System.out.print("일\t월\t화\t수\t목\t금\t토\t\t");
         System.out.println("일\t월\t화\t수\t목\t금\t토");
 
-        for (int j = 0; j < 3; j++) { // 세 달 모두 할 때까지
+        for (int j = 0; j < 3; j++) {
             int i = 0;
             if (days[j] > 6) { // 해당 달의 시작 요일 값이 7 이상인 경우
                 days[j] = days[j] - 7; // 줄바꿈 없이 바로 첫 번째 줄에서 시작하도록 값 조정
@@ -57,34 +57,33 @@ public class Calendar {
                 }
             }
         }
-        System.out.println(); // 첫 줄 완성
+        System.out.println();
 
-        // 달력 둘째 줄 ~ 나머지 줄 만들기
-        for (int k = 0; k < 5; k++) { // 아래로 몇 번 (행)
-            for (int j = 0; j < 3; j++) { // 옆으로 몇 번 (열)
+        for (int k = 0; k < 5; k++) {
+            for (int j = 0; j < 3; j++) {
                 for (int i = 0; i < lastDates[j]; i++) { // 해당 월 마지막 날짜까지
-                    if (dates[j] == 0) { // 이미 날짜 표기가 끝났는지 먼저 확인
+                    if (dates[j] == 0) {
                         System.out.print("\t\t\t\t\t\t\t\t");
                         break;
                     } else if (dates[j] <= lastDates[j]) {
                         System.out.printf("%02d\t", dates[j]); // 날짜 넣기
-                        dates[j]++; // 날짜 증가
-                        days[j]++; // 요일 증가
+                        dates[j]++;
+                        days[j]++;
                     }
-                    if (dates[j] > lastDates[j]) { // 날짜를 넣다가 -> 마지막 날짜를 표기할 차례라면
-                        for (int n = 0; n <= (35 - days[j]); n++) { // 5주차 일요일에서 해당 요일까지 차이 계산
-                            System.out.print("\t"); // 빈 요일에 공백 추가
+                    if (dates[j] > lastDates[j]) {
+                        for (int n = 0; n <= (35 - days[j]); n++) {
+                            System.out.print("\t");
                         }
                         dates[j] = 0;
-                        break; // 다음 열로
+                        break;
                     }
-                    if (days[j] % 7 == 0) { // 날짜를 넣다가 -> 토요일이면
-                        System.out.print("\t"); // 공백 하나만 추가
-                        break; // 다음 열로
+                    if (days[j] % 7 == 0) {
+                        System.out.print("\t");
+                        break;
                     }
                 }
             }
-            System.out.println(); // 나머지 줄 완성
+            System.out.println();
         }
     }
 

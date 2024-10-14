@@ -12,7 +12,7 @@ public class VirtualElection {
         System.out.print("가상 선거를 진행할 후보자 인원을 입력해 주세요. ");
         int candidate_num = sc.nextInt();
 
-        sc.nextLine(); // 버퍼를 비워주기
+        sc.nextLine(); // 버퍼 비워주기
 
         ArrayList<String> candidate_arr = new ArrayList<String>(); // 후보자 이름 저장할 List
 
@@ -39,7 +39,7 @@ public class VirtualElection {
 
             for (int j = 0; j < candidate_num; j++) {
 
-                double personreate = (double) sum[j] / elect_num * 100; //개인당 투표율 계산
+                double person_rate = (double) sum[j] / elect_num * 100; //개인당 투표율 계산
 
                 System.out.printf("[기호:%d] %s:", (j + 1), candidate_arr.get(j));
 
@@ -49,7 +49,7 @@ public class VirtualElection {
                     System.out.print("\t");
                 }
 
-                System.out.printf("\t%.2f%% \t (투표수: %d)\n", personreate, sum[j]);
+                System.out.printf("\t%.2f%% \t (투표수: %d)\n", person_rate, sum[j]);
             }
             System.out.println();
 
